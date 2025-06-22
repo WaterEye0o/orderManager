@@ -11,7 +11,7 @@ import './components/appear'
 
 export const routes = [
   createRoute('/', () => import('./pages/login')),
-  createAdminRoute('/product/list', () => import('./pages/order/product/list')),
+  createRoute('/product/list', () => import('./pages/order/product/list')),
   createAdminRoute('/product/add', () => import('./pages/order/product/add')),
   createAdminRoute('/shopCar/list', () => import('./pages/order/shopCar/list')),
   createAdminRoute('/shopCar/add', () => import('./pages/order/shopCar/add')),
