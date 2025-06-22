@@ -235,7 +235,7 @@ export class Sidebar extends Component<Props> {
               </ul>
             </nav>
           </div>
-          {this.state.isOpen && (
+          {/* {this.state.isOpen && (
             <div class="bg-primary text-white rounded p-4 w-56">
               <h2 class="font-semibold mb-2">重点公告位</h2>
               <p class="text-sm mb-4">
@@ -245,7 +245,7 @@ export class Sidebar extends Component<Props> {
                 知道了
               </button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     )

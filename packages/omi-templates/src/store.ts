@@ -107,10 +107,30 @@ export const sidebarItems = signal<NavbarItem[]>([
         href: '#/shopCar/list',
       },
       {
+        text: '新增购物车',
+        value: 'addShopCar',
+        href: '#/shopCar/add',
+      },
+      {
+        text: '报价单列表',
+        value: 'quotationList',
+        href: '#/quotation/list',
+      },
+      {
+        text: '生成订单',
+        value: 'addQuotation',
+        href: '#/quotation/add',
+      },
+      {
         text: '发货单列表',
-        value: 'shipment',
+        value: 'shipmentList',
         href: '#/shipment/list',
-      }
+      },
+      {
+        text: '发货单列表',
+        value: 'addShipment',
+        href: '#/shipment/add',
+      },
     ],
   },
 ])

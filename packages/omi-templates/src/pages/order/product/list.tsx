@@ -1,16 +1,17 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:16:15
- * @LastEditTime: 2025-06-21 22:25:28
+ * @LastEditTime: 2025-06-22 12:45:28
  * @LastEditors: 吴华彬
  * @Note: 
  */
-import '../../components/table/table-page'
-import '../../components/omiu/breadcrumb'
+import '../../../components/table/table-page'
+import '../../../components/omiu/breadcrumb'
 export function List(){
     
     return<o-table-page 
     title='商品信息'
+    features={[{title:'新增'}]}
     columns={[
         {
             title: '序号',

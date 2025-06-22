@@ -11,8 +11,15 @@ import './components/appear'
 
 export const routes = [
   createRoute('/', () => import('./pages/home')),
-  createAdminRoute('/product/list', () => import('./pages/product/list')),
-  createAdminRoute('/product/add', () => import('./pages/product/add')),
+  createAdminRoute('/product/list', () => import('./pages/order/product/list')),
+  createAdminRoute('/product/add', () => import('./pages/order/product/add')),
+  createAdminRoute('/shopCar/list', () => import('./pages/order/shopCar/list')),
+  createAdminRoute('/shopCar/add', () => import('./pages/order/shopCar/add')),
+  createAdminRoute('/shipment/list', () => import('./pages/order/shipment/list')),
+  createAdminRoute('/shipment/add', () => import('./pages/order/shipment/add')),
+  createAdminRoute('/quotation/list', () => import('./pages/order/quotation/list')),
+  createAdminRoute('/quotation/add', () => import('./pages/order/quotation/add')),
+
   createRoute('/about', () => import('./pages/about')),
   createRoute('/portfolio', () => import('./pages/portfolio')),
   createRoute('/blog', () => import('./pages/blog')),
