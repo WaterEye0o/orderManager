@@ -10,8 +10,10 @@ import { Component } from 'omi'
 import './components/appear'
 
 export const routes = [
-  createRoute('/', () => import('./pages/login')),
+  // createRoute('/', () => import('./pages/login')),
+  createRoute('/', () => import('./pages/home')),
   createRoute('/product/list', () => import('./pages/order/product/list')),
+  createRoute('/order/add', () => import('./pages/order/order/add')),
   createAdminRoute('/product/add', () => import('./pages/order/product/add')),
   createAdminRoute('/shopCar/list', () => import('./pages/order/shopCar/list')),
   createAdminRoute('/shopCar/add', () => import('./pages/order/shopCar/add')),
@@ -42,6 +44,7 @@ function createRoute(path: string, componentImport: () => Promise<unknown>) {
             minLoadingTime={400}
             imports={[componentImport()]}
             customRender={(results: { [x: string]: Function }[]) => {
+              const Module = results[0][Object.keys(results[0])[0]]
               return (
                 <o-appear
                   class="opacity-0 translate-y-4"
@@ -50,7 +53,7 @@ function createRoute(path: string, componentImport: () => Promise<unknown>) {
                     window.scrollTo(0, 0)
                   }}
                 >
-                  {results[0][Object.keys(results[0])[0]](router.params)}
+                  {isClassOrFunction(Module) === 'Function' ? Module(router.params) : <Module></Module>}
                 </o-appear>
               )
             }}

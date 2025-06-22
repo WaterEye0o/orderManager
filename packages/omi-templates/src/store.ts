@@ -64,7 +64,7 @@ export const navbarItems = signal<NavbarItem[]>([
   {
     text: '订单创建',
     icon: 'root-list',
-    href: '#/product/list',
+    href: '#/order/add',
     isOpen: true,
     
   },

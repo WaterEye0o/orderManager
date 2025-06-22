@@ -1,52 +1,39 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:16:15
- * @LastEditTime: 2025-06-22 13:39:53
+ * @LastEditTime: 2025-06-23 01:00:20
  * @LastEditors: 吴华彬
  * @Note: 
  */
 import '../../../components/table/table-page'
 import '../../../components/omiu/breadcrumb'
 export function List () {
-    return <o-table-page
-        title='报价单列表'
-        features={[
-            {title:'生成订单'}
-        ]}
-        columns={[
-            {
-                title: '序号',
-            },
-            {
-                title: '单据编号',
-            },
-            {
-                title: '单据状态',
-            },
-            {
-                title: '经销商名称',
-            },
-            {
-                title: '备注',
-            },
-            {
-                title: '商品名称',
-            },
-            {
-                title: '数量',
-            },
-            {
-                title: '单价',
-            },
-            {
-                title: '总价',
-            },
-            {
-                title: '期望发货日期',
-            },
-            {
-                title: '期望发货地址',
-            },
-        ]}
-    />
+    return <o-product-list-page
+    filters={[
+        {
+            type:'input',
+            title:'报价单编号'
+        },
+        {
+            type:'input',
+            title:'采购报价单号'
+        },
+        {
+            type:'input',
+            title:'创建日期'
+        },
+        {
+            type:'input',
+            title:'是否为SEIT(SPC)报价单'
+        },
+        {
+            type:'input',
+            title:'报价单状态'
+        },
+        {
+            type:'input',
+            title:'订单创建渠道'
+        },
+    ]}
+     />
 }
