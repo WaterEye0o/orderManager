@@ -1,12 +1,12 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:47:02
- * @LastEditTime: 2025-06-22 14:19:21
+ * @LastEditTime: 2025-06-22 19:45:17
  * @LastEditors: 吴华彬
  * @Note: 
  */
 
-import { Component, tag } from 'omi'
+import { bind, Component, tag } from 'omi'
 import '../omiu/tag.tsx'
 import '../dropdown/dropdown.tsx'
 import '../button/index.tsx'
@@ -49,35 +49,40 @@ export class TablePage extends Component {
         selected: []
     }
 
-    onRowSelect (idx,isAll) {
-        const allIndex = this.props.data.map((v,idx)=>idx)
-        if (isAll ) {
-            if (this.state.selected.length!== allIndex.length){
-                this.state.selected =allIndex
-            }else{
-                this.state.selected =[]
+    @bind
+    onRowSelect (idx: any, isAll: any) {
+        const allIndex = this.props.data.map((v: any, idx: any) => idx)
+        if (isAll) {
+            if (this.state.selected.length !== allIndex.length) {
+                this.state.selected = allIndex
+            } else {
+                this.state.selected = []
             }
-        }else{
-            if (this.state.selected.indexOf(idx)>-1){
-                this.state.selected.splice(this.state.selected.indexOf(idx),1)
-            }else{
+        } else {
+            if (this.state.selected.indexOf(idx) > -1) {
+                this.state.selected.splice(this.state.selected.indexOf(idx), 1)
+            } else {
                 this.state.selected.push(idx)
             }
         }
         this.update()
-        
+        console.log('===onRowSelect')
+        this.fire('row-select', {
+            selected: this.state.selected.map((idx)=>this.props.data[idx]),
+        })
+
     }
 
-    renderRowCheckbox (idx,isAll) {
+    renderRowCheckbox (idx: string | number, isAll: boolean) {
         let checked = false
-        if (isAll){
+        if (isAll) {
             checked = this.state.selected.length === this.props.data.length
-        }else{
-            checked = this.state.selected.indexOf(idx)>-1
+        } else {
+            checked = this.state.selected.indexOf(idx) > -1
         }
         return <th scope="col" class="p-4">
             <div class="flex items-center">
-                <input id="checkbox-all-search" checked={checked} onChange={()=>this.onRowSelect(idx,isAll)} type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                <input id="checkbox-all-search" checked={checked} onChange={() => this.onRowSelect(idx, isAll)} type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 <label for="checkbox-all-search" class="sr-only">checkbox</label>
             </div>
 
@@ -88,7 +93,7 @@ export class TablePage extends Component {
         const { columns } = props
         return <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                {props.rowSelection ? this.renderRowCheckbox('',true) : ''}
+                {props.rowSelection ? this.renderRowCheckbox('', true) : ''}
                 {columns.map(({ title }) => <th scope="col" class="px-6 py-3">
                     {title}
                 </th>)}
@@ -122,9 +127,9 @@ export class TablePage extends Component {
 
     renderTBody (props: TableProps) {
         return <tbody>
-            {props.data.map((v,idx) => {
+            {props.data.map((v, idx) => {
                 return <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    {props.rowSelection ? this.renderRowCheckbox(idx,false) : ''}
+                    {props.rowSelection ? this.renderRowCheckbox(idx, false) : ''}
                     <td class="px-6 py-4">
                         1
                     </td>
@@ -154,7 +159,7 @@ export class TablePage extends Component {
             <div>
                 {title}
             </div>
-            {features.map(({ title }) => <o-button> {title}</o-button>)}
+            {features.map(({ title,disabled }) => <o-button disabled={disabled} > {title}</o-button>)}
 
         </div>
     }

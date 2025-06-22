@@ -1,3 +1,10 @@
+/*
+ * @Author: 吴华彬
+ * @Date: 2025-06-21 01:16:47
+ * @LastEditTime: 2025-06-22 19:04:17
+ * @LastEditors: 吴华彬
+ * @Note: 
+ */
 import { isDark } from '../store.ts'
 import '../components/omiu/button.tsx'
 
@@ -52,7 +59,7 @@ export function Login() {
                 忘记账号？
               </a>
             </div>
-            <o-button theme="primary" type="submit" className="block w-full" cls="w-full" href="#/" tag="a">
+            <o-button theme="primary" type="submit" className="block w-full" cls="w-full" href="#/product/list" tag="a">
               登录
             </o-button>
           </form>

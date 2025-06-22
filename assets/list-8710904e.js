@@ -1,0 +1,1 @@
+import{P as t}from"./index-d09297ab.js";import"./breadcrumb-217b8d4d.js";import"./index-d4bae25f.js";function o(){return t("o-table-page",{title:"商品信息",features:[{title:"新增"}],columns:[{title:"序号"},{title:"名称"},{title:"单价"},{title:"库存"},{title:"预计交货日期"},{title:"默认发货地点"},{title:"数据状态"},{title:"使用状态"}]})}export{o as List};

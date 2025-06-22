@@ -1,7 +1,7 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:16:15
- * @LastEditTime: 2025-06-22 13:39:41
+ * @LastEditTime: 2025-06-22 19:34:54
  * @LastEditors: 吴华彬
  * @Note: 
  */
@@ -13,6 +13,9 @@ export function List () {
         features={[
             {title:'新增'}
         ]}
+        onRowSelect={(selected)=>{
+            console.log('onRowSelect',selected)
+        }}
         columns={[
             {
                 title: '序号',

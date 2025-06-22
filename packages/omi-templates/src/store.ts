@@ -86,7 +86,7 @@ export function getValueByPath(path: string, navbarItems: NavbarItem[]): string 
 
 export const sidebarItems = signal<NavbarItem[]>([
   {
-    text: '基础数据',
+    text: '商品',
     icon: 'root-list',
     href: '#/product/list',
     isOpen: true,
@@ -101,6 +101,14 @@ export const sidebarItems = signal<NavbarItem[]>([
         value: 'addProduct',
         href: '#/product/add',
       },
+    ],
+  },
+  {
+    text: '购物车',
+    icon: 'root-list',
+    href: '#/product/list',
+    isOpen: true,
+    children: [
       {
         text: '购物车列表',
         value: 'shopCarList',
@@ -111,7 +119,15 @@ export const sidebarItems = signal<NavbarItem[]>([
         value: 'addShopCar',
         href: '#/shopCar/add',
       },
-      {
+    ],
+  },
+  {
+    text: '报价单',
+    icon: 'root-list',
+    href: '#/product/list',
+    isOpen: true,
+    children: [
+       {
         text: '报价单列表',
         value: 'quotationList',
         href: '#/quotation/list',
@@ -121,15 +137,18 @@ export const sidebarItems = signal<NavbarItem[]>([
         value: 'addQuotation',
         href: '#/quotation/add',
       },
-      {
+    ],
+  },
+  {
+    text: '发货单',
+    icon: 'root-list',
+    href: '#/product/list',
+    isOpen: true,
+    children: [
+       {
         text: '发货单列表',
         value: 'shipmentList',
         href: '#/shipment/list',
-      },
-      {
-        text: '发货单列表',
-        value: 'addShipment',
-        href: '#/shipment/add',
       },
     ],
   },
