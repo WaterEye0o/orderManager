@@ -1,9 +1,18 @@
+/*
+ * @Author: 吴华彬
+ * @Date: 2025-06-21 01:16:38
+ * @LastEditTime: 2025-06-21 23:37:33
+ * @LastEditors: 吴华彬
+ * @Note: 
+ */
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+      "./src/**/*.{html,js}", 
+      "./node_modules/tw-elements/js/**/*.js"
   ],
   theme: {
     fontFamily: {

@@ -36,7 +36,7 @@ export function Home() {
             >
               <i class="t-icon t-icon-logo-github-filled text-lg"></i>源代码
             </o-button>
-            <o-button theme="primary" tag="a" href="#/admin/home">
+            <o-button theme="primary" tag="a" href="#/product/list">
               🎉 管理系统
             </o-button>
           </div>

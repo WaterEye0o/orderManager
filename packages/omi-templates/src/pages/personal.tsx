@@ -1,4 +1,4 @@
-import '../components/omiu/table'
+import '../components/table/table'
 import '../components/omiu/switch'
 
 export function Personal() {

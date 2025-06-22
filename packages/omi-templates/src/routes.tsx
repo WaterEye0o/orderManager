@@ -11,6 +11,8 @@ import './components/appear'
 
 export const routes = [
   createRoute('/', () => import('./pages/home')),
+  createAdminRoute('/product/list', () => import('./pages/product/list')),
+  createAdminRoute('/product/add', () => import('./pages/product/add')),
   createRoute('/about', () => import('./pages/about')),
   createRoute('/portfolio', () => import('./pages/portfolio')),
   createRoute('/blog', () => import('./pages/blog')),
@@ -163,7 +165,8 @@ function createAdminRoute(path: string, componentImport: () => Promise<unknown>)
             onLoaded={() => {
               window.refreshDark()
             }}
-          ></o-suspense>
+          >
+          </o-suspense>
         </AdminLayout>
       )
     },

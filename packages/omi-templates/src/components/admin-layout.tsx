@@ -1,3 +1,10 @@
+/*
+ * @Author: 吴华彬
+ * @Date: 2025-06-21 01:16:47
+ * @LastEditTime: 2025-06-21 20:41:01
+ * @LastEditors: 吴华彬
+ * @Note: 
+ */
 import { Component, tag, classNames, VNode } from 'omi'
 import './sidebar.tsx'
 import { navbarItems, activeMenuItem } from '../store.ts'
@@ -61,10 +68,33 @@ export function AdminLayout(props: { current?: string; children?: VNode | VNode[
             ></o-navbar>
           </div>
         </header>
-        <main class="p-4">{props.children}</main>
+        <main class="p-4">
+            {/* <o-breadcrumb
+                    items={[
+                      {
+                        label: 'Home',
+                        icon: 'home',
+                        href: '#/',
+                      },
+                      {
+                        label: '基础数据',
+                        href:'#/product/list'
+                      },
+                      {
+                        label: '商品列表',
+                        href:'#/product/list'
+                      },
+                    ]}
+                  ></o-breadcrumb> */}
+                  {/* <o-breadcrumb
+                    items={sidebarItems.value.map(()=>())}
+                  ></o-breadcrumb> */}
+          {props.children}
+        </main>
       </div>
 
       <CustomizeButton />
     </div>
   )
 }
+

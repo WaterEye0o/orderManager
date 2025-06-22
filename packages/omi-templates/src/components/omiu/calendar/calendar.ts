@@ -44,7 +44,7 @@ export const calendarTranslations: Record<CalendarLocale, CalendarTranslations> 
   [CalendarLocale.Chinese]: {
     weekdaysShort: ['一', '二', '三', '四', '五', '六', '日'],
     weekdays: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-    months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     today: '今天',
     cancel: '取消',
     ok: '确定',
@@ -58,7 +58,7 @@ export class Calendar {
   private firstDayOfWeek: FirstDayOfWeek
   translations: CalendarTranslations
 
-  constructor(date?: Date | string, locale: CalendarLocale = CalendarLocale.English) {
+  constructor(date?: Date, locale: CalendarLocale = CalendarLocale.English) {
     this.currentDate = date ? new Date(date) : new Date()
 
     this.locale = locale
@@ -152,10 +152,6 @@ export class Calendar {
     } else {
       this.currentDate.setMonth(currentMonth - 1)
     }
-  }
-
-  public currentMonth(): void {
-    this.currentDate = new Date()
   }
 
   public nextMonth(): void {

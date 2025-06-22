@@ -37,158 +37,6 @@ export const navbarItems = signal<NavbarItem[]>([
     value: 'home',
   },
   {
-    text: '产品',
-    children: [
-      {
-        text: '产品A',
-        path: '/product/a',
-        value: 'product-a',
-      },
-      {
-        text: '产品B',
-        path: '/product/b',
-        value: 'product-b',
-      },
-      {
-        // 分割
-        type: 'spliter',
-      },
-      {
-        text: '产品文档',
-        path: '/product-docs/zh/getting-started',
-        value: 'product-docs',
-      },
-      {
-        text: '教育课程',
-        path: '/education',
-        value: 'education',
-      },
-      {
-        text: '新闻杂志',
-        path: '/news',
-        value: 'news',
-      },
-      {
-        text: '组件',
-        path: '/components/button',
-        value: 'components',
-      },
-      {
-        text: '图标库',
-        path: '/icons',
-        value: 'icons',
-      },
-    ],
-  },
-  {
-    text: '结果页',
-    children: [
-      {
-        type: 'title',
-        text: '结果页',
-      },
-      {
-        text: '成功页',
-        path: '/results/success',
-        value: 'result-success',
-      },
-      {
-        text: '失败页',
-        path: '/results/fail',
-        value: 'result-fail',
-      },
-      {
-        text: '网络异常',
-        path: '/results/network-error',
-        value: 'result-network-error',
-      },
-      {
-        text: '无权限',
-        path: '/results/forbidden',
-        value: 'result-forbidden',
-      },
-      {
-        text: '访问页面不存在',
-        path: '/results/not-found',
-        value: 'result-not-found',
-      },
-      {
-        text: '服务器出错页',
-        path: '/results/server-error',
-        value: 'result-server-error',
-      },
-      {
-        text: '浏览器不兼容',
-        path: '/results/browser-not-support',
-        value: 'result-browser-not-support',
-      },
-      {
-        text: '系统维护页',
-        path: '/results/system-maintenance',
-        value: 'result-system-maintenance',
-      },
-    ],
-  },
-  {
-    text: '其他页',
-    children: [
-      {
-        type: 'title',
-        text: '收集用户反馈',
-      },
-      {
-        text: '调查问卷',
-        path: '/questionnaire',
-        value: 'questionnaire',
-      },
-      {
-        text: '联系我们',
-        path: '/chat',
-        value: 'chat',
-      },
-      {
-        // 分割
-        type: 'spliter',
-      },
-      {
-        text: '组合/作品集',
-        path: '/portfolio',
-        value: 'portfolio',
-      },
-      {
-        text: '活动/会议',
-        path: '/meeting',
-        value: 'meeting',
-      },
-      {
-        text: '个人博客',
-        path: '/blog',
-        value: 'blog,',
-      },
-      {
-        text: '企业官网',
-        path: '/company',
-        value: 'company,',
-      },
-      {
-        text: '慈善组织模板',
-        path: '/charity',
-        value: 'charity',
-      },
-      {
-        text: '美食模版',
-        path: '/food',
-        value: 'food',
-      },
-      {
-        text: '关于',
-        path: '/about',
-        value: 'about',
-      },
-    ],
-  },
-
-  {
     text: 'OMI官网',
     href: 'http://omijs.org/',
   },
@@ -238,74 +86,34 @@ export function getValueByPath(path: string, navbarItems: NavbarItem[]): string 
 
 export const sidebarItems = signal<NavbarItem[]>([
   {
-    text: '仪表盘',
-    icon: 'dashboard',
-    isOpen: true,
-    children: [
-      {
-        text: '概览仪表盘',
-        value: 'dashboard',
-        href: '#/admin/home',
-      },
-      {
-        text: '统计报表',
-        value: 'chart',
-        href: '#/admin/chart',
-      },
-    ],
-    tag: '',
-  },
-  {
-    text: '列表页',
+    text: '基础数据',
     icon: 'root-list',
-    children: [
-      {
-        text: '基础列表',
-      },
-      {
-        text: '卡片列表',
-      },
-      {
-        text: '筛选列表',
-      },
-      {
-        text: '树状筛选列表',
-      },
-    ],
-  },
-  {
-    text: '表单页',
-    icon: 'edit',
+    href: '#/product/list',
     isOpen: true,
     children: [
       {
-        text: '基础表单页',
+        text: '商品列表',
+        value: 'productList',
+        href: '#/product/list',
       },
       {
-        text: '分步表单页',
-      },
-    ],
-  },
-  {
-    text: '详情页',
-    icon: 'layers',
-    isOpen: true,
-    children: [
-      {
-        text: '基础详情页',
+        text: '新增商品',
+        value: 'addProduct',
+        href: '#/product/add',
       },
       {
-        text: '多卡片详情页',
+        text: '购物车列表',
+        value: 'shopCarList',
+        href: '#/shopCar/list',
       },
       {
-        text: '数据详情页',
-      },
-      {
-        text: '二级详情页',
-      },
+        text: '发货单列表',
+        value: 'shipment',
+        href: '#/shipment/list',
+      }
     ],
   },
 ])
 
-export const activeSidebarItem = signal('dashboard')
+export const activeSidebarItem = signal('productList')
 export const isSidebarOpen = signal(true)
