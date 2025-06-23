@@ -1,1 +1,0 @@
-import{P as t}from"./index-92fbee97.js";import"./breadcrumb-02c71c13.js";import"./index-c9dcca1a.js";function n(){return t("o-product-list-page",{filters:[{type:"input",title:"报价单编号"},{type:"input",title:"采购报价单号"},{type:"input",title:"创建日期"},{type:"input",title:"是否为SEIT(SPC)报价单"},{type:"input",title:"报价单状态"},{type:"input",title:"订单创建渠道"}]})}export{n as List};
