@@ -1,7 +1,7 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:03:34
- * @LastEditTime: 2025-06-23 11:12:06
+ * @LastEditTime: 2025-06-23 11:13:41
  * @LastEditors: 吴华彬
  * @Note: 
  */
@@ -92,7 +92,7 @@ export function Home () {
             <div style='font-weight: 400;font-size: 13px;color: #333333;'>
               {_v}
             </div>
-            <img  style='width:20px;height:20px' src='/static/xiazai.png' />
+            <img  style='width:20px;height:20px' src='#/static/xiazai.png' />
           </div>)}
           {/* <div  style='width:368px' class='flex flex-row items-center justify-between p-2 shadow-lg mr-5'>
             <div>
