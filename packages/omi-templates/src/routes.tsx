@@ -10,8 +10,8 @@ import { Component } from 'omi'
 import './components/appear'
 
 export const routes = [
-  // createRoute('/', () => import('./pages/login')),
-  createRoute('/', () => import('./pages/home')),
+  createRoute('/', () => import('./pages/login')),
+  // createRoute('/', () => import('./pages/home')),
   createRoute('/static/', () => import('./pages/home')),
   createRoute('/product/list', () => import('./pages/order/product/list')),
   createRoute('/order/add', () => import('./pages/order/order/add')),
@@ -25,7 +25,7 @@ export const routes = [
 
   createBaseRoute('/login', () => import('./pages/login')),
   createAdminRoute('/admin/home', () => import('./pages/admin/home')),
-  createRoute('*', () => import('./pages/results/not-found')),
+  // createRoute('*', () => import('./pages/results/not-found')),
   {
     path: '/before-enter/test',
     beforeEnter: () => {

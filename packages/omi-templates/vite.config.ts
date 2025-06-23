@@ -12,7 +12,16 @@ export default defineConfig({
   resolve: {
     alias: {
       // "omi": resolve("./src/omi/index.ts"),
-      "@": resolve("./src/"),
-    },
+      '@': resolve('./src/')
+    }
   },
+  server: {
+    cors:true,
+    proxy: {
+      '/ierp/kapi': {
+        target: 'http://116.228.31.185:8025/',
+        changeOrigin: true,
+      },
+    }
+  }
 })

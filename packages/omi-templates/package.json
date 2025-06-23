@@ -22,6 +22,7 @@
     "copy-to-clipboard": "^3.3.3",
     "echarts": "^5.5.0",
     "markdown-it": "^14.0.0",
+    "moment": "^2.30.1",
     "omi": "7.7.3",
     "omi-elements": "^0.0.0",
     "omi-form": "^0.0.35",

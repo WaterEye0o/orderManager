@@ -1,23 +1,26 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 01:16:47
- * @LastEditTime: 2025-06-22 19:04:17
+ * @LastEditTime: 2025-06-23 23:42:27
  * @LastEditors: 吴华彬
  * @Note: 
  */
 import { isDark } from '../store.ts'
-import '../components/omiu/button.tsx'
-
-export function Login() {
+import '../components/button/index.tsx'
+import { getToken } from '../net/service.ts'
+import moment from 'moment'
+import { Router } from 'omi-router'
+import { router } from '../main.tsx'
+import { setToken } from '../net/net.ts'
+export function Login () {
   return (
     <div
       class="bg-background"
       style={{
         backgroundSize: '150%',
         backgroundPosition: 'center',
-        backgroundImage: `url('https://static.tdesign.tencent.com/starter/vue/assets/assets-login-bg-${
-          isDark.value ? 'black-ff89ae69' : 'white-439b0654'
-        }.png')`,
+        backgroundImage: `url('https://static.tdesign.tencent.com/starter/vue/assets/assets-login-bg-${isDark.value ? 'black-ff89ae69' : 'white-439b0654'
+          }.png')`,
       }}
     >
       <div class="min-h-screen flex items-center justify-center">
@@ -59,7 +62,26 @@ export function Login() {
                 忘记账号？
               </a>
             </div>
-            <o-button theme="primary" type="submit" className="block w-full" cls="w-full" href="#/product/list" tag="a">
+            <o-button onClick={async () => {
+              const res = await getToken({
+                "client_id": "snd",
+                "client_secret": "Snd@202506181800",
+                "username": "DHL",
+                "accountId": "2239992719369835520",
+                "nonce": "417",
+                // "timestamp": "2025-06-23 21:12:52",
+                "timestamp": moment().format('YYYY-MM-DD HH:mm:ss'),
+                "language": "zh_CN"
+              })
+              if (res?.data?.access_token) {
+                setToken(res?.data?.access_token)
+                router.push('/product/list')
+              }
+            }} theme="primary" className="block w-full" cls="w-full"
+            //  type="submit"
+            // href="#/product/list" 
+            // tag="a"
+            >
               登录
             </o-button>
           </form>

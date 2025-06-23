@@ -78,7 +78,7 @@ export const navbarItems = signal<NavbarItem[]>([
   {
     text: '发货单',
     icon: 'root-list',
-    href: '#/quotation/list',
+    href: '#/shipment/list',
     isOpen: true,
     
   },
