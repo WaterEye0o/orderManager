@@ -1,1 +1,0 @@
-import{P as t}from"./index-d09297ab.js";import"./breadcrumb-217b8d4d.js";import"./index-d4bae25f.js";function o(){return t("o-table-page",{title:"报价单列表",features:[{title:"生成订单"}],columns:[{title:"序号"},{title:"单据编号"},{title:"单据状态"},{title:"经销商名称"},{title:"备注"},{title:"商品名称"},{title:"数量"},{title:"单价"},{title:"总价"},{title:"期望发货日期"},{title:"期望发货地址"}]})}export{o as List};
