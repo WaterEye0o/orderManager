@@ -16,6 +16,7 @@
     "@r2wc/react-to-web-component": "^2.0.4",
     "@types/node": "^22.9.1",
     "@types/prismjs": "^1.26.3",
+    "axios": "^1.10.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "copy-to-clipboard": "^3.3.3",

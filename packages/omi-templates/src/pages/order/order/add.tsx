@@ -1,7 +1,7 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-22 18:49:51
- * @LastEditTime: 2025-06-23 11:03:01
+ * @LastEditTime: 2025-06-23 14:52:56
  * @LastEditors: 吴华彬
  * @Note: 
  */
@@ -16,14 +16,16 @@ import 'omi-form'
 import '../../components/datePicker'
 import { Component, tag } from 'omi'
 
+const defaultProductsItem = {
+      name: 'Silver',
+      num:1
+    }
 
 @tag('o-order-add')
 export class Add extends Component {
 
   state = {
-    products: [{
-      name: 'Silver'
-    }],
+    products: [Object.assign({},defaultProductsItem)],
     selected: []
   }
 
@@ -63,6 +65,76 @@ let checked = false
         </th>
   }
 
+  renderAddRow(index){
+
+    return <div class="flex text-left max-w-28">
+              <button
+                type="button"
+                onClick={()=>{
+                  this.state.products[index].num=this.state.products[index].num-1
+                  this.update()
+                }}
+                disabled={this.state.products[index].num===0}
+                // id="decrement-button"
+                data-input-counter-decrement="quantity-input"
+                class="bg-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-600 hover:bg-zinc-200 border border-zinc-300 rounded-s-lg p-3 h-10 focus:ring-zinc-100 dark:focus:ring-zinc-700 focus:ring-2 focus:outline-none"
+              >
+                <svg
+                  class="w-3 h-3 text-zinc-900 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 18 2"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 1h16"
+                  />
+                </svg>
+              </button>
+              <input
+                type="text"
+                value={this.state.products[index].num}
+                data-input-counter
+                aria-describedby="helper-text-explanation"
+                class="bg-zinc-50 border-x-0 border-zinc-300 h-10 text-center text-zinc-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 border dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-zinc-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                // placeholder="999"
+              />
+              <button
+                type="button"
+                onClick={()=>{
+                  console.log('this.state.products[index].num',this.state.products[index].num)
+                  console.log('this.state.products[index]',this.state.products[index])
+                  console.log('this.state.products',this.state.products)
+                  this.state.products[index].num=this.state.products[index].num+1;
+
+                  this.update()
+                }}
+                data-input-counter-increment="quantity-input"
+                class="bg-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-600 hover:bg-zinc-200 border border-zinc-300 rounded-e-lg p-3 h-10 focus:ring-zinc-100 dark:focus:ring-zinc-700 focus:ring-2 focus:outline-none"
+              >
+                <svg
+                  class="w-3 h-3 text-zinc-900 dark:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 1v16M1 9h16"
+                  />
+                </svg>
+              </button>
+            </div>
+  }
+
   renderTable () {
     return <div class='flex  flex-col'>
       <div class='flex flex-row justify-between p-5 items-center'>
@@ -70,9 +142,7 @@ let checked = false
           商品信息
         </div>
         <o-button onClick={() => {
-          this.state.products.push({
-            name: 'Silver'
-          })
+          this.state.products.push(Object.assign({},defaultProductsItem))
           this.update()
         }}>
           添加行
@@ -86,6 +156,9 @@ let checked = false
               商品信息
             </th>
             <th scope="col" class="px-6 py-3">
+              数量
+            </th>
+            <th scope="col" class="px-6 py-3">
               操作
             </th>
           </tr>
@@ -97,6 +170,9 @@ let checked = false
               <td class="px-6 py-4">
                 {name}
               </td>
+              <th scope="col" class="px-6 py-3">
+              {this.renderAddRow(index)}
+            </th>
               <td class="px-6 py-4" onClick={() => {
                 this.state.products.splice(index, 1)
                 this.update()
