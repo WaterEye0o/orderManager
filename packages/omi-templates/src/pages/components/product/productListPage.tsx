@@ -1,7 +1,7 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:47:02
- * @LastEditTime: 2025-06-24 00:13:09
+ * @LastEditTime: 2025-06-24 00:16:18
  * @LastEditors: 吴华彬
  * @Note: 
  */
@@ -39,8 +39,8 @@ type FilterItem = {
 }
 
 type ItemField = {
-    title:string
-    key:string
+    title: string
+    key: string
 }
 
 type TableProps = {
@@ -51,7 +51,7 @@ type TableProps = {
     rowSelection?: rowSelection
 
     filters: FilterItem[]
-    itemsField:ItemField[]
+    itemsField: ItemField[]
     request?: any
 }
 
@@ -59,47 +59,47 @@ type TableProps = {
 export class ProductListPage extends Component<TableProps> {
 
 
-    state:any = {
+    state: any = {
         filters: {},
-        data:[],
-        pageNo:1,
+        data: [],
+        pageNo: 1,
     }
 
-    request:any = null
-     installed () {
+    request: any = null
+    installed () {
         if (!this.request) {
             this.request = this.props.request
         }
 
-       this.getData()
+        this.getData()
     }
 
-    async getData(){
+    async getData () {
         if (this.request && typeof this.request === 'function') {
             const params = this.props.filters.reduce((pre, val) => {
-                if ( this.state.filters&&this.state.filters[val.key]) {
+                if (this.state.filters && this.state.filters[val.key]) {
                     return ({ ...pre, [`${val.key}`]: this.state.filters[val.key] })
                 } else {
-                    return ({ ...pre})
+                    return ({ ...pre })
                 }
             }, {})
             const res = await this.request(params)
-            if (res.data.rows){
+            if (res.data.rows) {
                 this.state.data = res.data.rows
                 this.update()
             }
         }
     }
 
-    rednerFilterBox ({title,key}) {
+    rednerFilterBox ({ title, key }) {
         return <div style='width:598px;height:50px;box-sizing: border-box;' class='flex flex-row items-center'>
             <div style='font-weight: 400;font-size: 12px;color: #333333;padding-left:18px;width:100px' >{title}</div>
-            <input 
-            value={this.state.filters[key]}
-            onInput={(e)=>{
-                this.state.filters[key] = e.target.value
-                this.update()
-            }} onKeyDown={(v)=>{v.keyCode == 13&&this.getData()}} style='width: 434px;height: 30px;background: #F3F3F3;' />
+            <input
+                value={this.state.filters[key]}
+                onInput={(e) => {
+                    this.state.filters[key] = e.target.value
+                    this.update()
+                }} onKeyDown={(v) => { v.keyCode == 13 && this.getData() }} style='width: 434px;height: 30px;background: #F3F3F3;' />
         </div>
     }
 
@@ -118,7 +118,7 @@ export class ProductListPage extends Component<TableProps> {
     }
 
 
-    renderFilterOptionBox ({ options, title ,key}) {
+    renderFilterOptionBox ({ options, title, key }) {
         return <div style='height:50px;' class='w-full flex flex-row items-center'>
             <div style='font-weight: 400;font-size: 12px;color: #333333;padding-left:18px;width:100px' >{title}</div>
             <div class='flex-1 flex flex-row items-cente'>
@@ -133,7 +133,7 @@ export class ProductListPage extends Component<TableProps> {
         </div>
     }
 
-    renderProductItem (data,index) {
+    renderProductItem (data, index) {
         const itemsField = this.props.itemsField || []
         const item = this.state.data[index]
         return <div style="border:1px solid #E9E9E9;width:280px;height:430px;background:#fff" class='shadow-sm mr-3'>
@@ -141,13 +141,13 @@ export class ProductListPage extends Component<TableProps> {
                 <img style="width:220px;heght:220px" src='https://www.tailwindcss.cn/img/refactoring-ui-sidebar.png' />
             </div > */}
             <div class='p-2'>
-                {itemsField.map(({title,key})=>{
-                    if (title =='编号'){
+                {itemsField.map(({ title, key }) => {
+                    if (title == '编号') {
                         return <div class='flex flex-row mb-2'>
-                    <div style='font-weight:500;line-height: 20px;' class='mr-1'>{item[key]}</div>
-                    <div style='width: 46px;height: 20px;background: #FF850D;color: #FFFFFF;font-size: 12px;border-radius: 10px;text-align: center;line-height: 20px;'>编号</div>
-                </div>
-                    }else{
+                            <div style='font-weight:500;line-height: 20px;' class='mr-1'>{item[key]}</div>
+                            <div style='width: 46px;height: 20px;background: #FF850D;color: #FFFFFF;font-size: 12px;border-radius: 10px;text-align: center;line-height: 20px;'>编号</div>
+                        </div>
+                    } else {
                         return <div style='color:#666666;font-weight: 400;font-size: 14px;' class='mb-1'> {title}:{item[key]}</div>
                     }
                 })}
@@ -167,10 +167,10 @@ export class ProductListPage extends Component<TableProps> {
         // const {columns} = props
         return <div>
             <div style="border:1px solid #E9E9E9;background:#fff" class='w-full flex flex-row flex-wrap '>
-                {this.props.filters.map(({ type, data, title,key }) => {
+                {this.props.filters.map(({ type, data, title, key }) => {
                     switch (type) {
-                        case FilterEnum.option: return this.renderFilterOptionBox({ options: data, title,key })
-                        case FilterEnum.input: return this.rednerFilterBox({title,key})
+                        case FilterEnum.option: return this.renderFilterOptionBox({ options: data, title, key })
+                        case FilterEnum.input: return this.rednerFilterBox({ title, key })
                         default: return <div />
                     }
                 })}
