@@ -57,7 +57,7 @@ export const navbarItems = signal<NavbarItem[]>([
   {
     text: '库存查询',
     icon: 'root-list',
-    href: '#/product/list',
+    href: '#/quotation/list',
     isOpen: true,
     
   },
@@ -71,14 +71,14 @@ export const navbarItems = signal<NavbarItem[]>([
   {
     text: '报价单',
     icon: 'root-list',
-    href: '#/product/list',
+    href: '#/quotation/list',
     isOpen: true,
     
   },
   {
     text: '发货单',
     icon: 'root-list',
-    href: '#/product/list',
+    href: '#/quotation/list',
     isOpen: true,
     
   },

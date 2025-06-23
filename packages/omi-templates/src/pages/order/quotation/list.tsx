@@ -1,12 +1,13 @@
 /*
  * @Author: 吴华彬
  * @Date: 2025-06-21 17:16:15
- * @LastEditTime: 2025-06-23 01:00:20
+ * @LastEditTime: 2025-06-23 11:30:57
  * @LastEditors: 吴华彬
  * @Note: 
  */
 import '../../../components/table/table-page'
 import '../../../components/omiu/breadcrumb'
+import '../../components/product/productListPage'
 export function List () {
     return <o-product-list-page
     filters={[
